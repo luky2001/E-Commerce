@@ -1,0 +1,360 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <title>FreshF@od</title>
+     <link rel="icon" type="image/x-icon" href="{% static 'image/logo.png' %}">
+     
+     
+  </head>
+  <style >
+    body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+
+}
+
+  </style>
+  <script>
+    $( document ).ready(function() {
+      let is_vendor="{{is_vendor}}"
+      console.log("vendor value=",is_vendor)
+      if(is_vendor==="True"){
+        document.getElementById("profile_menu").href="/vendor_details/"
+      }else{
+        document.getElementById("profile_menu").href="/vendor/"
+      }
+    });
+  </script>
+  <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <img style="height:50px;width: 50px;" src="{% static 'image/logo.png' %}">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+      <li class="nav-item active px-3">
+        <a class="nav-link" href="/dashboard/">Home</a>
+      </li>
+      <li class="nav-item active px-3">
+        <a class="nav-link" href="/add/">My Recipe</a>
+      </li>
+     <li class="nav-item active px-3">
+        <a class="nav-link" href="/recipe/">Add Recipe</a>
+      </li>
+      <!-- Example split danger button -->
+<div class="btn-group">
+  
+  <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  	<a ><img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/profile-52e0dc.svg"width="24" height="24"><span>  {{user.first_name}}</span></a>
+    
+  </button>
+  <div class="dropdown-menu">
+     <a id="profile_menu" class="dropdown-item " title="My Profile"><img  src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/profile-52e0dc.svg" alt="My Profile" width="20" height="20" > My Profile</a>
+     <hr>
+   <a href="#" class="dropdown-item" title="Orders"><img class="SFnind" src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/orders-bfe8c4.svg" alt="Orders" width="20" height="20"  >  Orders</a>
+   <hr>
+    <a href="/logout/" class="dropdown-item" title="Logout"><img  src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/logout-e63ddf.svg" alt="Logout" width="20" height="20" >  Logout</a>
+    </div>
+    </ul>   
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+  <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+</ul>
+</div>
+</nav>
+<div class=" container  mt-3">
+
+<h1 class="styles__H1-a90kxg-2 style__BannerHeadText-sc-1iksw1-0 cWSfmy"><span class="style__ColoredSpan-sc-1iksw1-1 bvEpHv" style="margin-left: 300px; color:darkred;">Sell Online with FreshF@od</span>
+<img src="https://static-assets-web.flixcart.com/fk-sp-static/images/prelogin/banner/Desktop_sell.webp" alt="" height="" width="" loading="lazy" class="styles__BannerWrapper-sc-1apzq4x-1 efNVbq"></h1>
+</div>
+
+<div class="container">
+<table class="table table-bordered">
+  <br>
+  <hr>
+  <tbody>
+    
+
+    <tr>
+      <th scope="row" class="styles__KpiContainer-o5uywd-0 iekrTd"><ul class="styles__KpiList-o5uywd-3 CmNXr"><li class="styles__KeyWrapper-o5uywd-4 ehypLa"><img src="https://static-assets-web.flixcart.com/fk-sp-static/images/crore_users_revamp.svg" alt="50 Crore users icon" class="styles__KeyImage-o5uywd-6 jbqjjE"><div class="styles__KeyHeader-o5uywd-1 crrUit">50k FreshF@od customers</div></li></th>
+      
+      <td class="styles__VerticalLine-o5uywd-5 haZlKn"></div><li class="styles__KeyWrapper-o5uywd-4 ehypLa"><img src="https://static-assets-web.flixcart.com/fk-sp-static/images/wallet-icon.svg" alt="7* days secure &amp; regular payments icon" class="styles__KeyImage-o5uywd-6 jbqjjE"><div class="styles__KeyHeader-o5uywd-1 crrUit">7* days secure &amp; regular payments</div></li></td>
+      <td  class="styles__VerticalLine-o5uywd-5 haZlKn"></div><li class="styles__KeyWrapper-o5uywd-4 ehypLa"><img src="https://static-assets-web.flixcart.com/fk-sp-static/images/low-cost-icon.svg" alt="Low cost of doing business icon" class="styles__KeyImage-o5uywd-6 jbqjjE"><div class="styles__KeyHeader-o5uywd-1 crrUit">Low cost of doing business</div></li></td>
+      <td class="styles__VerticalLine-o5uywd-5 haZlKn"></div><li class="styles__KeyWrapper-o5uywd-4 ehypLa"><img src="https://static-assets-web.flixcart.com/fk-sp-static/images/seller-support-icon.svg" alt="One click Seller Support icon" class="styles__KeyImage-o5uywd-6 jbqjjE"><div class="styles__KeyHeader-o5uywd-1 crrUit">One click Seller Support</div></li> </td>
+         <td
+         class="styles__VerticalLine-o5uywd-5 haZlKn"></div><li class="styles__KeyWrapper-o5uywd-4 ehypLa"><img src="https://static-assets-web.flixcart.com/fk-sp-static/images/shopping-bag-icon.svg" alt="Access to The Big Billion Days &amp; more icon" class="styles__KeyImage-o5uywd-6 jbqjjE"><div class="styles__KeyHeader-o5uywd-1 crrUit">Easy to make money &amp; more</div></li></ul></div>
+       </td>
+    </tr></tbody>
+</table>
+</div>
+
+<hr>
+<br>
+<div class="card col-7  mx-auto  p-6 shadow-lg bg-light">
+
+  <div class="row">
+    <div class="col">
+       <img src="https://static-assets-web.flixcart.com/fk-sp-static/images/prelogin/images/group_1000001236.webp" width="240px" height="254px" />
+   </div>
+
+    <div class="col-lg mt-3">
+    <div class="styles__RightContainer-a5s7uc-4 iMXeuI"><div class="styles__Container-a5s7uc-5 bOSNXD"><div class="style__ContentHeader-sc-1c43xqv-6 hJmdef"><h2 class="styles__H2-a90kxg-5 style__H2TextWrapper-sc-1c43xqv-1 iANvci">Receive Payments</h2><div class="style__NavIndicator-sc-1c43xqv-7 gxStbM"></div></div><div class="styles__ContentParaContainer-a5s7uc-7 leFggZ"><p>With a customer base of over 50k+ on FreshF@od, you can expect orders from customers across India. To ensure your convenience, FreshF@od ensures timely payments directly into your registered bank account, which you provided during the FreshF@od account creation process. You can receive your payments as fast as 7 days* from the date of dispatch, enabling you to manage your cash flow efficiently and focus on growing your business.</p></div><div class="styles__ConditionLink-a5s7uc-22 jCHScS"><span><a >Know more</a> about Fees &amp; Commission.</span></div></div></div></div>
+        </div>
+    </div>
+</div>
+
+
+<br>
+<br>
+<br>
+<div class="container">
+<div class="styles__LeftContainer-a5s7uc-10 fldMTg"><div class="styles__Container-a5s7uc-5 bOSNXD"><div class="styles__ContentParaContainer-a5s7uc-7 leFggZ"><p>At FreshF@od, we recognize that there may be times when you require additional assistance for your online business. That's why, with your FreshF@od seller account, you gain access to a diverse range of tools and support functions designed to foster business growth. These include:</p></div><div type="tick-mark" class="styles__ContentStepsContainer-a5s7uc-23 kYNqyY"><div type="tick-mark" class="styles__ContentStepsContainer-a5s7uc-23 kYNqyY"><ul><div class="styles__DivWrapper-a5s7uc-40 ExFZF"><li><span class="styles__SpanTextWrapper-a5s7uc-34 capNWR">Price Recommendation Tool : Helps you determine optimal pricing for your products.</span></li></div><div class="styles__DivWrapper-a5s7uc-40 ExFZF"><li><span class="styles__SpanTextWrapper-a5s7uc-34 capNWR">Product Recommendation Tool : Suggests popular and trending products to expand your product selection.</span></li></div><div class="styles__DivWrapper-a5s7uc-40 ExFZF"><li><span class="styles__SpanTextWrapper-a5s7uc-34 capNWR">FreshF@od Ads : Enables you to advertise your products and reach a larger customer base.</span></li></div><div class="styles__DivWrapper-a5s7uc-40 ExFZF"><li><span class="styles__SpanTextWrapper-a5s7uc-34 capNWR">Paid Account Management services : Offers dedicated account management support for personalised guidance.</span></li></div><div class="styles__DivWrapper-a5s7uc-40 ExFZF"><li><span class="styles__SpanTextWrapper-a5s7uc-34 capNWR">Catalog &amp; Photoshoot services : Assists with creating high-quality product catalogues and images.</span></li></div><div class="styles__DivWrapper-a5s7uc-40 ExFZF"><li><span class="styles__SpanTextWrapper-a5s7uc-34 capNWR">Ordering Food&nbsp;and more : Participate in exciting sales events and promotional campaigns.</span></li></div></ul></div></div></div><div class="styles__Container-a5s7uc-5 bOSNXD"><div class="styles__ConditionLink-a5s7uc-22 jCHScS"><span>Know more on how to grow your business</span></div></div></div>
+</div>
+<hr>
+<div class="container">
+<div class="about-section">
+  <h1>Seller Success Story</h1>
+  <p>50k+ seller happy with supply.</p>
+  <p>Creating your FreshF@od seller account is a quick process, taking less than 10 minutes, and requires only 3 documents. Follow the checklist to ensure a seamless account creation experience.</p>
+</div>
+</div>
+<br>
+<h2 style="text-align:center">Our Seller</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="{% static 'image/lud.jpeg' %}" alt="vinay" style="width:150px;height: 200px; margin-left: 20px;">
+      <div class="container">
+        <h2>Vinay Garg</h2>
+        <h5 class="title" style="color:darkred;"> Restaurants- @Mirchi Tadaka</h5>
+        <p>Starting with just one categary, their unwavering support and innovative plateform empowerd me to grow exponentially, expanding to six diverse categories and achiving an astounding 5x growth year on year.</p>
+        <p>vinay@gmail.com</p>
+        <p><button class="button">Follow</button></p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="column">
+    <div class="card">
+      <img src="{% static 'image/lady.jpeg' %}" alt="tanu" style="width:190px;height: 200px; margin-left: 20px;">
+      <div class="container">
+        <h2>Tanu Shree</h2>
+        <h5 class="title" style="color:darkred;"> Restaurants- @Sethi Punjabi</h5>
+       <p>When moving from offline to online bussiness, our aim was to sell 300 order per month,we sell more than 700 orders per day and this has been possible becouse of the growth features on the freshf@od seller dashboard.</p>
+        <p>tanu123@gmail.com</p>
+        <p><button class="button">Follow</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="{% static 'image/ind.jpeg' %}"alt="sunil" style="width:180px;height: 200px; margin-left: 20px;">
+      <div class="container">
+        <h2>Sunil Roy</h2>
+        <h5 class="title" style="color:darkred;"> Restaurants- @Thikana Dhaba</h5>
+       <p>Starting with just one categary, their unwavering support and innovative plateform empowerd me to grow exponentially, expanding to six diverse categories and achiving an astounding 5x growth year on year.</p>
+        <p>sunilroy@gmail.com</p>
+        <p><button class="button">Follow</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<br>
+
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-body-tertiary text-muted bg-dark">
+  <!-- Section: Social media -->
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <!-- Left -->
+    <div class="me-5 d-none d-lg-block active">
+      <h3 style="color: white;">Get connected with us on social media</h3>
+    </div>
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+<a href="#" class="fa fa-facebook" style="width:20px;height: 10px;" > </a>
+<a href="#" class="fa fa-twitter "></a>  
+<a href="#" class="fa fa-google "></a>
+<a href="#" class="fa fa-youtube "></a>
+<a href="#" class="fa fa-instagram "></a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4" style="color:white;">
+            <i class="fas fa-gem me-3"></i>FreshF@od
+          </h6>
+          <p>
+            Here we can sell the online fresh food for the customer , and get easily food and enjoy the 
+            day
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4" style="color:white;">
+            Products
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Fresh Food </a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Veg</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Non-Veg</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">South menu</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4" style="color:white;">
+            More Feature
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Pricing</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Settings</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Orders</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Help</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4" style="color:white;">Contact</h6>
+          <p> Add- Uttar Pradesh , Varanasi India</p>
+          <p> Mail-
+            FreshF@od12@gmail.com
+          </p>
+          <p > Mob- 91+ 6392571714</p>
+          <p >Phone- + 0542 89 76 89</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2024 Copyright:
+    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">FreshF@od.com</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+
+
+</body>
+</html>

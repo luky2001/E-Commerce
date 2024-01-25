@@ -1,0 +1,75 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+      <title>FreshF@od</title>
+     <link rel="icon" type="image/x-icon" href="{% static 'image/logo.png' %}">
+     
+</head>
+ 
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="nav-link active" href="/customer/customer_dashboard/">Back</a>
+ 
+</nav>
+    <div class="container">
+ 
+    <h1 style="color:darkred; text-align: center; ">Your Shopping Cart</h1>
+ <div class="product-list">
+        <div>
+          <br>
+<p style="color:red; text-align:center;" class="mb-0">Total Price:- Rs.{{total_price}}</p>
+          </div>
+          <br>
+          
+  
+   {% for item in cart_items %}
+    <section class="h-10" style="background-color: #eee;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-10">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h3 class="fw-normal mb-0 text-black"></h3>
+      
+        </div>
+
+        <div class="card rounded-3 mb-4">
+          <div class="card-body p-4">
+            <div class="row d-flex justify-content-between align-items-center">
+              <div class="col-md-2 col-lg-2 col-xl-2">
+                <img
+                  src="{{item.product.recipe_image.url}}"
+                  class="img-fluid rounded-3" alt="Cotton T-shirt">
+              </div>
+              <div class="col-md-3 col-lg-3 col-xl-3">
+                <p class="lead fw-normal mb-2">{{ item.product.recipe_name }} ({{ item.quantity }})</p>
+              </div>
+              <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+              </div>
+              <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                <h5 class="mb-0">Rs.{{ item.product.recipe_price}}<p style="color:red;"><i>(per plate)</i></p></h5>
+              </div>
+              
+               <button  type="button" class="btn btn-primary" > <a href="/customer/remove_cart/{{item.id}}" class="text-white">Remove</a></button>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+</section>
+
+
+</body>
+ 
+</html>

@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <!-- divinectorweb.com -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>FreshF@od</title>
+     <link rel="icon" type="image/x-icon" href="{% static 'image/logo.png' %}">
+     
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+	body,
+html {
+  height: 1%;
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5%;
+}
+.user-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 40px;
+  width: 650px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 20px -5px rgba(0, 0, 0, 0.5);
+}
+
+.user-card:before {
+  content: "";
+  position: absolute;
+  height: 300%;
+  width: 173px;
+  background: #262626;
+  top: -60px;
+  left: -125px;
+  z-index: 0;
+  transform: rotate(17deg);
+}
+
+.user-card-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+.user-card-img img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.user-card-info {
+  text-align: center;
+}
+
+.user-card-info h2 {
+  font-size: 24px;
+  margin: 0;
+  margin-bottom: 10px;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: 3px;
+}
+
+.user-card-info p {
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.user-card-info p span {
+  font-weight: 700;
+  margin-right: 10px;
+}
+@media only screen and (min-width: 768px) {
+  .user-card {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .user-card-img {
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+
+  .user-card-info {
+    text-align: left;
+  }
+}
+
+@media (max-width: 767px) {
+  .wrapper {
+    padding-top: 3%;
+  }
+  .user-card:before {
+    width: 300%;
+    height: 200px;
+    transform: rotate(0);
+  }
+  .user-card-info h2 {
+    margin-top: 25px;
+    font-size: 35px;
+  }
+  .user-card-info p span {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+}
+
+
+</style>
+<body>
+
+    <div class="wrapper">
+        <div class="user-card">
+            <div class="user-card-img">
+              <img src="{{vendor.image.url}}"alt="">
+            </div>
+
+            <div class="user-card-info">
+                <h1 ><span >{{user.first_name}} </span> {{user.last_name}}</h1>
+              <h2 style="color:darkred;">{{vendor.restaurant_name }}</h2>
+              <h3 style="color:red"><span style="color:black;">Email:-</span> {{vendor.email_id}}</h3>
+              <h3 style="color:red"><span style="color:black;">Location:-</span> {{vendor.address}}</h3>
+              <h3 style="color:red"><span style="color:black;">Occupation:-</span> Restaurant</h3>
+              <p><span>About me:</span> responsible for the entirety of their restaurant, from the staff members who prepare and serve the food to those who handle the scheduling and cleanup.</p>
+            </div>
+             <a href="/dashboard/" type="button" class="btn btn-danger">Back</a>
+             -
+               <a  href="/update_details/" type="button" class="btn btn-danger">Update</a>
+            
+
+        </div>
+    </div>
+      
+</body>
+</html>
